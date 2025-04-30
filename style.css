@@ -63,13 +63,14 @@ section{
     align-items: center;
 }
 
-section img{
+section img {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
     object-fit: cover;
+    opacity: 0.5;
 }
 
 #text {
@@ -101,58 +102,86 @@ section img{
     left: 0;
     top: 290px; /* Adjust this value to move it up */
 }
+
 .card-container {
     display: flex;
     gap: 2rem;
-    overflow-x: auto;
-    padding: 1rem;
-    max-width: 600px;
+    overflow-x: auto; /* Enable horizontal scrolling */
+    scroll-behavior: smooth; /* Smooth scrolling */
+    padding: 1rem 0;
+    margin: 2rem 0;
+    -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
+    scrollbar-width: none; /* Hide scrollbar for Firefox */
+    animation-name: scrollleft;
+    animation-duration: 20s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+
+/* Hide scrollbar for Chrome/Safari */
+.card-container::-webkit-scrollbar {
+    display: none;
 }
 
 .card {
-    flex: 0 0 auto;
-    background: linear-gradient(135deg, #f5a164, #f76b1c);
-    color: white;
-    padding: 2rem;
+    background: white;
     border-radius: 15px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    padding: 1.5rem;
+    width: 300px;
     text-align: center;
     transition: transform 0.3s, box-shadow 0.3s;
+    border: 3px solid #F5A164;
+    flex: 0 0 auto; /* Prevent cards from shrinking */
+
+}
+
+@keyframes scrollleft{
+    to{
+        left: -200px
+    }
 }
 
 .card:hover {
     transform: translateY(-10px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 }
 
-.card-title {
-    font-size: 1.8rem;
-    margin-bottom: 1rem;
-    font-weight: bold;
-}
-
-.card-description {
-    font-size: 1rem;
-    opacity: 0.9;
-    margin-bottom: 1.5rem;
-}
-
-.card-button {
-    background: white;
-    color: #f76b1c;
-    padding: 0.8rem 1.5rem;
-    border: none;
+.card img {
+    width: 100%;
     border-radius: 10px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: background 0.3s, color 0.3s;
+    margin-bottom: 1rem;
 }
 
-.card-button:hover {
-    background: #f76b1c;
+.card h3 {
+    font-size: 1.5rem;
+    color: #0d47a1;
+    margin-bottom: 0.5rem;
+}
+
+.card p {
+    font-size: 1rem;
+    color: #555;
+    margin-bottom: 1rem;
+}
+
+.card a {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    background: #4ECDC4;
     color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background 0.3s;
 }
 
+.card a:hover {
+    background: #FF6B35;
+}
+
+
+
+/*service section starts here*/
 .section-title {
     text-align: center;
     margin: 4rem 0 2rem;
@@ -216,8 +245,8 @@ html{
 /*footer starts here*/
 /* Footer */
 footer {
-    background-color: var(--text-dark);
-    color: var(--text-light);
+    background-color: #212529;
+    color: #FFFFFF;
     padding: 60px 0 30px;
 }
 
@@ -236,7 +265,7 @@ footer {
 }
 
 .footer-logo i {
-    color: var(--secondary);
+    color: #4ECDC4;
     margin-right: 10px;
 }
 
@@ -258,18 +287,18 @@ footer {
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: var(--transition);
+    transition: all 0.3s ease;
 }
 
 .social-link:hover {
-    background-color: var(--secondary);
-    color: var(--primary);
+    background-color: #4ECDC4;
+    color: #0A2463;
 }
 
 .footer-links h3 {
     font-size: 18px;
     margin-bottom: 20px;
-    color: var(--secondary);
+    color: #4ECDC4;
 }
 
 .footer-links ul {
@@ -282,12 +311,18 @@ footer {
 
 .footer-links ul li a {
     opacity: 0.7;
-    transition: var(--transition);
+    transition: all 0.3s ease;
 }
 
 .footer-links ul li a:hover {
     opacity: 1;
-    color: var(--secondary);
+    color: #4ECDC4;
+}
+
+.footer-newsletter h3 {
+    font-size: 18px;
+    margin-bottom: 20px;
+    color: #4ECDC4;
 }
 
 .footer-newsletter p {
@@ -308,18 +343,18 @@ footer {
 }
 
 .newsletter-form button {
-    background-color: var(--secondary);
-    color: var(--primary);
+    background-color: #4ECDC4;
+    color: #0A2463;
     border: none;
     padding: 0 20px;
     border-radius: 0 4px 4px 0;
     font-weight: 600;
     cursor: pointer;
-    transition: var(--transition);
+    transition: all 0.3s ease;
 }
 
 .newsletter-form button:hover {
-    background-color: var(--accent);
+    background-color: #FF6B35;
     color: white;
 }
 
