@@ -13,7 +13,7 @@ window.addEventListener('scroll', function() {
     text2.style.transform = `translateX(${scrollPosition * 0.5}px)`;
 
     // Adjust the vertical position of the third element based on scroll
-    text3.style.transform = `translateY(${scrollPosition * 0.5}px)`;
+    text3.style.transform = `translateX(${scrollPosition * 0.5}px)`;
 
     // Add fade-up effect to the image when scrolled
     if (scrollPosition > 100) { // Adjust threshold as needed
@@ -50,3 +50,4 @@ serviceButton.addEventListener('click', function() {
         servicesGrid.classList.remove('fade-up-animation');
     }, { once: true });
 });
+
